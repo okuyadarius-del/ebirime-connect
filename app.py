@@ -116,7 +116,7 @@ def listing_card(row):
     cols = st.columns([1, 3, 1])
 
     crop_photos = {
-        "Maize": "https://share.google/EOCQ8CatKhrtfrrjh",
+        "Maize": "https://6ace13db7d990bca6543670f.imgix.net/sandbox/corn-grains-clay-plate-wooden-table-flat-lay_176474-5894.avif",
         "Beans": "https://images.unsplash.com/photo-1515543904379-3d757afe72e4?w=800",
         "Tomatoes": "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=800",
         "Onions": "https://images.unsplash.com/photo-1508747703725-719777637510?w=800",
