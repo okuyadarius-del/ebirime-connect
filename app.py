@@ -117,7 +117,7 @@ def listing_card(row):
 
     crop_photos = {
         "Maize": "https://6ace13db7d990bca6543670f.imgix.net/sandbox/corn-grains-clay-plate-wooden-table-flat-lay_176474-5894.avif",
-        "Beans": "file:///C:/Users/user/Downloads/images.jpeg",
+        "Beans": "https://6ace13db7d990bca6543670f.imgix.net/sandbox/images.jpeg",
         "Tomatoes": "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=800",
         "Onions": "https://images.unsplash.com/photo-1508747703725-719777637510?w=800",
         "Cassava": "https://images.unsplash.com/photo-1596097635121-14b63b7a0c19?w=800",
