@@ -110,27 +110,50 @@ def get_listings(available_only=False, seller=None):
 def format_ugx(value):
     return "UGX " + f"{value:,.0f}"
 
+
 def listing_card(row):
     st.markdown('<div class="ec-card">', unsafe_allow_html=True)
     cols = st.columns([1, 3, 1])
+
+    crop_photos = {
+        "Maize": "https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=800",
+        "Beans": "https://images.unsplash.com/photo-1515543904379-3d757afe72e4?w=800",
+        "Tomatoes": "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=800",
+        "Onions": "https://images.unsplash.com/photo-1508747703725-719777637510?w=800",
+        "Cassava": "https://images.unsplash.com/photo-1596097635121-14b63b7a0c19?w=800",
+        "Matooke": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800",
+        "Potatoes": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800",
+        "Rice": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800",
+    }
+
     with cols[0]:
-        if row["photo_url"]:
-            st.image(row["photo_url"], use_container_width=True)
+        crop_name = str(row["crop"]).strip()
+        photo_url = str(row["photo_url"] or "").strip()
+        image_url = photo_url or crop_photos.get(crop_name)
+
+        if image_url:
+            st.image(image_url, use_container_width=True)
         else:
-            emoji = {"Maize":"🌽","Beans":"🫘","Tomatoes":"🍅","Onions":"🧅","Cassava":"🥔","Matooke":"🍌","Potatoes":"🥔","Rice":"🌾"}.get(row["crop"], "🌱")
-            st.markdown(f"<div style='font-size:48px;text-align:center;padding:12px'>{emoji}</div>", unsafe_allow_html=True)
+            st.write("Photo not available")
+
     with cols[1]:
         st.subheader(row["crop"])
-        st.markdown(f"<div class='ec-price'>{format_ugx(row['price'])} {row['price_unit']}</div>", unsafe_allow_html=True)
+        st.markdown(
+            f"<div class='ec-price'>{format_ugx(row['price'])} {row['price_unit']}</div>",
+            unsafe_allow_html=True,
+        )
         st.write(f"**Quantity:** {row['quantity']:,.2f} {row['unit']}")
         st.write(f"📍 {row['location']} · {row['status']}")
         st.caption(f"Seller: {row['seller_name']} · Listed: {row['created_at']}")
+
     with cols[2]:
         if st.button("View details", key=f"view_{row['id']}", use_container_width=True):
             st.session_state.selected_listing = row["id"]
             st.session_state.page_override = "Listing Details"
             st.rerun()
+
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 # Allow navigation to a detail page from any listing.
 if st.session_state.get("page_override") == "Listing Details":
