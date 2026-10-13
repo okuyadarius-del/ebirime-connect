@@ -120,8 +120,8 @@ def listing_card(row):
         "Beans": "https://6ace13db7d990bca6543670f.imgix.net/sandbox/images.jpeg",
         "Tomatoes": "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=800",
         "Onions": "https://images.unsplash.com/photo-1508747703725-719777637510?w=800",
-        "Cassava": "https://images.unsplash.com/photo-1596097635121-14b63b7a0c19?w=800",
-        "Matooke": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800",
+        "Cassava": "https://6ace13db7d990bca6543670f.imgix.net/sandbox/1024px-Cassava-1024x768.webp",
+        "Matooke": "https://6ace13db7d990bca6543670f.imgix.net/sandbox/images%20(1).jpeg",
         "Potatoes": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800",
         "Rice": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800",
     }
